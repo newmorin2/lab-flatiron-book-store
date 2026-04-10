@@ -6,7 +6,6 @@ const bookStore = {
             title: 'Eloquent JavaScript: A Modern Introduction to Programming',
             author: 'Marjin Haverbeke',
             imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/51IKycqTPUL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg',
-            
         },
         {
             id:2,
@@ -45,3 +44,24 @@ const bookStore = {
 
 // Write your code here!
 
+const bookStoreTitle = document.getElementById('header')
+bookStoreTitle.textContent = bookStore.name
+
+const bookList = document.getElementById('book-list');
+
+for (let book of bookStore.books) {
+  const bookContainer = document.createElement('li');
+  const bookTitle = document.createElement('h3');
+  const bookAuthor = document.createElement('p');
+  const bookImage = document.createElement('img');
+
+  bookTitle.textContent = book.title;
+  bookAuthor.textContent = book.author;
+  bookImage.src = book.imageUrl;
+  bookImage.alt = book.title;
+
+  bookContainer.append(bookTitle,bookAuthor,bookImage);
+
+  // Append bookContainer to bookList
+  bookList.append(bookContainer);
+}
